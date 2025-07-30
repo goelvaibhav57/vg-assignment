@@ -54,7 +54,7 @@ spec:
     spec:
       containers:
       - name: vgnagp-container
-        image: goelvaibhav57/vgnagp:vgnagp_1.0
+        image: goelvaibhav57/vgnagp:vgnagp_2.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
