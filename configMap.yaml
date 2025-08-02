@@ -5,7 +5,7 @@ metadata:
   namespace: vgnagp-ns
 data:
   application.properties: |
-    spring.datasource.url : jdbc:mysql://my-release-mysql.default.svc.cluster.local:3306/nagpdb?useSSL=false&allowPublicKeyRetrieval=true
+    spring.datasource.url : jdbc:mysql://mysql-0.mysql.default.svc.cluster.local/nagpdb?useSSL=false&allowPublicKeyRetrieval=true
     spring.datasource.username : root
     spring.datasource.password : mypassword
     spring.jpa.properties.hibernate.dialect : org.hibernate.dialect.MySQLDialect
