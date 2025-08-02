@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vg-assignment-ingress
+  namespace: vgnagp-ns	
+spec:
+  rules:
+   - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: vgnagp-svc
+            port:	
+              number: 80
+  ingressClassName: nginx

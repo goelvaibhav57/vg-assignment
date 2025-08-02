@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vgnagp-deployment
+  namespace: vgnagp-ns
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: vg-assignment
+  template:
+    metadata:
+      labels:
+        app: vg-assignment
+    spec:
+      containers:
+      - name: vgnagp-container
+        image: goelvaibhav57/vgnagp:vgnagp_2.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: config-volume
+          mountPath: /config/application.properties
+        env:
+        - name: spring.datasource.password
+          valueFrom:
+            secretKeyRef:
+              name: vgnagp-secret
+              key: spring.datasource.password
+      volumes:
+      - name: config-volume
+        configMap:
+          name: vgnagp-config
